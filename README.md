@@ -1,5 +1,7 @@
 ## **Full Stack CHAT APP using Firebas and Riverpod 2.0**
 
+---
+
 ### In this project of Flutter, I'll be making a chat application using Flutter with Firebase. Riverpod will be used for the State Managment part.
 
 ---
