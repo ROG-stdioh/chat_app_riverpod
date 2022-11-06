@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "554110566045-s29tshd5n3jm4uoas715eee8e7sokrn0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chat_app_riverpod",
+            "certificate_hash": "56af1ed3730d0fc70bf4db51ac4e0d9ff39112be"
+          }
+        },
+        {
           "client_id": "554110566045-ea2gdmde8i9dhpgf8ds2poukjbssi0sp.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "554110566045-ea2gdmde8i9dhpgf8ds2poukjbssi0sp.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "554110566045-b9ga0jf61jkuaoh1721l31n8sj73k6v0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chatAppRiverpod"
+              }
             }
           ]
         }
