@@ -1,4 +1,4 @@
-## **Full Stack CHAT APP using Firebas and Riverpod 2.0**
+## **Full Stack CHAT APP using Firebase and Riverpod 2.0**
 
 ---
 
