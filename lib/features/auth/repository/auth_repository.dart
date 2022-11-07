@@ -1,5 +1,6 @@
 import 'package:chat_app_riverpod/common/utils/utils.dart';
 import 'package:chat_app_riverpod/features/auth/screens/otp_screen.dart';
+import 'package:chat_app_riverpod/features/auth/screens/user_information_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -38,6 +39,26 @@ class AuthRepository {
           );
         }),
         codeAutoRetrievalTimeout: (String verificationId) {},
+      );
+    } on FirebaseAuthException catch (e) {
+      showSnackBar(context: context, content: e.message!);
+    }
+  }
+
+  void verifyOTP({
+    required BuildContext context,
+    required String verificationId,
+    required String userOTP,
+  }) async {
+    try {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+          verificationId: verificationId, smsCode: userOTP);
+      await auth.signInWithCredential(credential);
+      // ignore: use_build_context_synchronously
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        UserInformationScreen.routeName,
+        (route) => false,
       );
     } on FirebaseAuthException catch (e) {
       showSnackBar(context: context, content: e.message!);
