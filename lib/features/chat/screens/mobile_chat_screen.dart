@@ -3,7 +3,7 @@ import 'package:chat_app_riverpod/common/widgets/loader.dart';
 import 'package:chat_app_riverpod/features/auth/controller/auth_controller.dart';
 import 'package:chat_app_riverpod/features/chat/widgets/bottom_chat_field.dart';
 import 'package:chat_app_riverpod/models/user_model.dart';
-import 'package:chat_app_riverpod/widgets/chat_list.dart';
+import 'package:chat_app_riverpod/features/chat/widgets/chat_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -48,8 +48,10 @@ class MobileChatScreen extends ConsumerWidget {
       body: Column(
         //chat list
         children: [
-          const Expanded(
-            child: ChatList(),
+          Expanded(
+            child: ChatList(
+              recieverUserId: uid,
+            ),
           ),
           BottomChatField(
             recieverUserId: uid,

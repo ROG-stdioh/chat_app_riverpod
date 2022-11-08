@@ -1,6 +1,6 @@
 import 'package:chat_app_riverpod/colors.dart';
-import 'package:chat_app_riverpod/widgets/chat_list.dart';
-import 'package:chat_app_riverpod/widgets/contact_list.dart';
+import 'package:chat_app_riverpod/features/chat/widgets/chat_list.dart';
+import 'package:chat_app_riverpod/features/chat/widgets/contact_list.dart';
 import 'package:chat_app_riverpod/widgets/web_chat_appbar.dart';
 import 'package:chat_app_riverpod/widgets/web_profile_bar.dart';
 import 'package:chat_app_riverpod/widgets/web_search_bar.dart';
@@ -47,7 +47,7 @@ class WebScreenLayout extends StatelessWidget {
 
                   // chat list
                   const Expanded(
-                    child: ChatList(),
+                    child: ChatList(recieverUserId: ''),
                   ),
 
                   // message input box
