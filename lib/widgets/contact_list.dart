@@ -1,6 +1,6 @@
 import 'package:chat_app_riverpod/colors.dart';
 import 'package:chat_app_riverpod/info.dart';
-import 'package:chat_app_riverpod/screens/mobile_chat_screen.dart';
+import 'package:chat_app_riverpod/features/chat/screens/mobile_chat_screen.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatelessWidget {

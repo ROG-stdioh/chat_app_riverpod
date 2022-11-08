@@ -3,7 +3,7 @@ import 'package:chat_app_riverpod/features/auth/screens/login_screen.dart';
 import 'package:chat_app_riverpod/features/auth/screens/otp_screen.dart';
 import 'package:chat_app_riverpod/features/auth/screens/user_information_screen.dart';
 import 'package:chat_app_riverpod/features/select_contacts/screens/select_contacts_screen.dart';
-import 'package:chat_app_riverpod/screens/mobile_chat_screen.dart';
+import 'package:chat_app_riverpod/features/chat/screens/mobile_chat_screen.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
