@@ -45,7 +45,14 @@ class SelectContactRepository {
         if (selectedPhoneNum == userData.phoneNumber) {
           isFound = true;
           // ignore: use_build_context_synchronously
-          Navigator.pushNamed(context, MobileChatScreen.routeName);
+          Navigator.pushNamed(
+            context,
+            MobileChatScreen.routeName,
+            arguments: {
+              'name': userData.name,
+              'uid': userData.uid,
+            },
+          );
         }
       }
 
