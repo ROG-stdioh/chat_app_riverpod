@@ -1,4 +1,7 @@
 import 'package:chat_app_riverpod/colors.dart';
+import 'package:chat_app_riverpod/common/widgets/error.dart';
+import 'package:chat_app_riverpod/common/widgets/loader.dart';
+import 'package:chat_app_riverpod/features/auth/controller/auth_controller.dart';
 import 'package:chat_app_riverpod/features/landing/screens/landing_screen.dart';
 import 'package:chat_app_riverpod/firebase_options.dart';
 import 'package:chat_app_riverpod/responsive/responsive_layout.dart';
@@ -21,11 +24,11 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Chat App",
@@ -36,7 +39,18 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const LandingScreen(),
+      home: ref.watch(userDataAuthProvider).when(
+            data: (user) {
+              if (user == null) {
+                return const LandingScreen();
+              }
+              return const MobileScreenLayout();
+            },
+            error: (err, trace) {
+              return ErrorScreen(error: err.toString());
+            },
+            loading: () => const Loader(),
+          ),
     );
   }
 }

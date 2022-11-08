@@ -8,7 +8,6 @@ import 'package:chat_app_riverpod/models/user_model.dart';
 import 'package:chat_app_riverpod/screens/mobile_screen_layout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -26,6 +25,17 @@ class AuthRepository {
     required this.auth,
     required this.firestore,
   });
+
+  Future<UserModel?> getCurrentUserData() async {
+    var userData =
+        await firestore.collection('users').doc(auth.currentUser?.uid).get();
+    UserModel? user;
+
+    if (userData.data() != null) {
+      user = UserModel.fromMap(userData.data()!);
+    }
+    return user;
+  }
 
   void signInWithPhone(BuildContext context, String phoneNumber) async {
     try {
